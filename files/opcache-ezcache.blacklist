@@ -1,0 +1,6 @@
+; skip all ezpublish cache file
+
+/home/httpd/*/html/ezpublish_legacy/var/cache/
+/home/httpd/*/html/ezpublish_legacy/var/*/cache/
+/home/httpd/*/html/var/cache/
+/home/httpd/*/html/var/*/cache/

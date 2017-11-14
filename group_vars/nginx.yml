@@ -1,0 +1,43 @@
+---
+http_params:
+  - tcp_nopush on
+  - tcp_nodelay on
+  - types_hash_max_size 2048
+  - gzip on
+  - gzip_disable "msie6"
+  - gzip_vary on
+  - gzip_proxied any
+  - gzip_comp_level 5
+  - gzip_buffers 32 8k
+  - gzip_http_version 1.1
+  - gzip_types text/plain text/css application/json application/javascrip
+  - client_max_body_size 160m
+  - server_names_hash_bucket_size 128
+  - server_names_hash_max_size 750
+
+packages:
+  - php-common
+  - php-cli
+  - php-devel
+  - php-fpm
+  - php-gd
+  - php-intl
+  - php-ldap
+  - php-mbstring
+  - php-opcache
+  - php-pdo
+  - php-pecl-apcu
+  - php-pecl-imagick
+  - php-pecl-jsonc
+  - php-pecl-jsonc-devel
+  - php-pecl-zip
+  - php-mysql
+  - php-process
+  - php-soap
+  - php-suhosin
+  - php-xml
+  - xpdf
+  - ImageMagick
+ # - ImageMagick-last-libs
+  - bzip2-libs
+  - yum-utils

@@ -1,0 +1,3 @@
+---
+
+nginx_elb_url: app.{{env}}.opencontent.biz

@@ -1,0 +1,52 @@
+---
+
+- name: Common tasks
+  hosts:
+    - all:&tag_Environment_{{env}}
+  remote_user: centos
+  become: yes
+  become_method: sudo
+  vars_files:
+    - "group_vars/all.yml"
+  roles:
+    - epel
+  tasks:
+    - include: tasks/global_task.yml
+
+- name: Nginx tasks
+  hosts: tag_Role_nginx:&tag_Environment_{{env}} #used for dynamic inventory: ec2 with tag Role == nginx
+  remote_user: centos
+  become: yes
+  become_method: sudo
+  vars_files:
+    - "group_vars/nginx.yml"
+  roles:
+    - nginx
+    - repo-remi
+  tasks:
+    - include: tasks/nginx_task.yml
+
+- name: Solr tasks
+  hosts: tag_Role_solr:&tag_Environment_{{env}}
+  remote_user: centos
+  become: yes
+  become_method: sudo
+  vars_files:
+    - "group_vars/solr.yml"
+  roles:
+    - java-oracle
+    - solr
+
+- name: Varnish tasks
+  hosts: tag_Role_varnish:&tag_Environment_{{env}}
+  remote_user: centos
+  become: yes
+  become_method: sudo
+  handlers:
+    - include: handlers/main.yml
+  vars_files:
+    - "group_vars/varnish.yml"
+  roles:
+    - nginx
+  tasks:
+    - include: tasks/varnish_task.yml

@@ -1,0 +1,35 @@
+---
+
+global_packages:
+    - vim
+    - mc
+    - mlocate
+    - wget
+    - zip
+    - unzip
+    - rsync
+    - bzip2
+    - tar
+    - bind-utils
+    - htop
+    - colordiff
+    - byobu
+    - iftop
+    - mc
+    - vim
+    - redhat-lsb-core
+    - git
+    - hunspell
+    - hunspell-en
+    - hunspell-it
+    - net-tools
+    - nano
+
+group_list:
+  - users
+
+user_list:
+  - { name: 'developer', groups: 'users', ssh_pub_key: ''}
+  - { name: 'dante', groups: 'users', ssh_pub_key: ''}
+  - { name: 'centos', groups: '', ssh_pub_key: ''}
+

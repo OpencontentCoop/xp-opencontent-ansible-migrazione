@@ -1,0 +1,16 @@
+---
+
+- name: Dump an existing database to a file
+  postgresql_db:
+    name={{item}}
+    state=dump
+    target=/tmp/{{ item }}-{{timestamp }}.sql
+  with_items: db_name
+
+- name: Get compressed database 
+  fetch: 
+    mode=pull
+    src="/tmp/{{ item }}-{{ timestamp }}.sql"
+    dest="{{ psql_dump_directory }}/{{ item }}.{{ timestamp }}.sql"
+    flat=yes
+  with_items: psql_dump_databases

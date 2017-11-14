@@ -1,0 +1,16 @@
+---
+
+- name: Create a new database
+  postgresql_db:
+    name=ez20150103_openpa_villedanaunia
+    encoding=UTF-8
+    template=template0
+
+
+# GRANT ALL PRIVILEGES
+- name: Grant Privileges
+  postgresql_privs:
+    db=ez20150103_openpa_villedanaunia
+    privs=ALL
+    type=database
+    role=root

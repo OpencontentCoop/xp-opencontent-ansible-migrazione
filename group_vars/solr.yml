@@ -1,0 +1,24 @@
+# which version?
+java_version: 8
+
+# which subversion?
+java_subversion: 152
+
+jdk_tarball_url: http://download.oracle.com/otn-pub/java/jdk/8u152-b16/aa0333dd3019491ca4f6ddbe78cdb6d0/jdk-8u152-linux-x64
+
+# which directory to put the download file?
+java_download_path: /tmp
+
+# rpm/tar.gz file location:
+#   - true: download from Oracle on-the-fly;
+#   - false: copy from `{{ playbook_dir }}/files` on the control machine.
+java_download_from_oracle: true
+
+# remove temporary downloaded files?
+java_remove_download: false
+
+# set $JAVA_HOME?
+java_set_javahome: true
+
+# install JCE?
+java_install_jce: false
